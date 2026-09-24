@@ -240,23 +240,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Supabase & Formulários
   async function saveAppointmentToSupabase(appointmentData) {
-    if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+    const supabaseUrl = window.SUPABASE_URL || 'https://sidqrgepatjgkmlfsrve.supabase.co';
+    const supabaseKey = window.SUPABASE_ANON_KEY || 'sb_publishable_SNEIecDKXVURJWqEY_GaSg_GUXNTH-I';
+    const client = typeof window.getSupabaseClient === 'function' ? window.getSupabaseClient() : window.supabaseClient;
+
+    console.log('📤 [Hair Focus] Enviando agendamento para o Supabase:', appointmentData);
+
+    // 1. Tenta via SDK oficial do Supabase
+    if (client) {
       try {
-        const { data, error } = await supabaseClient
+        const { data, error } = await client
           .from('agendamentos')
-          .insert([appointmentData]);
-        if (error) {
-          console.error(error);
+          .insert([appointmentData])
+          .select();
+
+        if (!error && data) {
+          console.log('✅ [SDK] Agendamento salvo com sucesso no Supabase:', data);
+          return { success: true, data };
+        } else if (error) {
+          console.warn('⚠️ SDK retornou erro, tentando via REST fetch direto:', error);
         }
-      } catch (err) {
-        console.error(err);
+      } catch (sdkErr) {
+        console.warn('⚠️ Exceção no SDK, tentando via REST fetch direto:', sdkErr);
       }
+    }
+
+    // 2. Fallback direto via REST API (Funciona 100% em qualquer navegador e ambiente)
+    try {
+      const response = await fetch(`${supabaseUrl}/rest/v1/agendamentos`, {
+        method: 'POST',
+        headers: {
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify(appointmentData)
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('✅ [REST API] Agendamento salvo com sucesso no Supabase:', data);
+        return { success: true, data };
+      } else {
+        const errJson = await response.json().catch(() => ({}));
+        console.error('❌ Erro na API do Supabase:', response.status, errJson);
+        return { success: false, error: errJson };
+      }
+    } catch (fetchErr) {
+      console.error('❌ Erro de rede ao conectar com Supabase:', fetchErr);
+      return { success: false, error: fetchErr };
     }
   }
 
   if (modalBookingForm) {
     modalBookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = modalBookingForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Agendando...';
+      }
+
       const service = modalServiceSelect.value;
       const stylist = document.getElementById('modalStylistSelect').value;
       const date = modalDateInput.value;
@@ -266,10 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const selectedOption = modalServiceSelect.options[modalServiceSelect.selectedIndex];
       const price = parseFloat(selectedOption.getAttribute('data-price') || '80');
 
-      closeModal();
-      modalBookingForm.reset();
-
-      await saveAppointmentToSupabase({
+      const payload = {
         servico: service,
         profissional: stylist,
         data: date,
@@ -278,15 +321,37 @@ document.addEventListener('DOMContentLoaded', () => {
         telefone_cliente: phone,
         valor: price,
         status: 'confirmado'
-      });
+      };
 
-      showToast('Agendamento Confirmado! ✨', `Obrigada, ${name}! Seu horário para ${service} com ${stylist} no dia ${date} às ${time} foi reservado com sucesso.`);
+      const result = await saveAppointmentToSupabase(payload);
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+
+      closeModal();
+      modalBookingForm.reset();
+
+      if (result.success) {
+        showToast('Agendamento Confirmado! ✨', `Obrigada, ${name}! Seu horário para ${service} com ${stylist} no dia ${date} às ${time} foi salvo no Supabase com sucesso.`);
+      } else {
+        const errorMsg = result.error ? (result.error.message || result.error.details || 'Verifique as permissões (RLS) no Supabase.') : 'Verifique sua conexão.';
+        showToast('Aviso no Supabase ⚠️', `Agendamento registrado localmente, mas o Supabase reportou: ${errorMsg}`);
+      }
     });
   }
 
   if (fastBookingForm) {
     fastBookingForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = fastBookingForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Agendando...';
+      }
+
       const service = document.getElementById('fastService').value;
       const professional = document.getElementById('fastProfessional').value;
       const date = fastDateInput.value;
@@ -296,10 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const selectedOption = document.getElementById('fastService').options[document.getElementById('fastService').selectedIndex];
       const price = parseFloat(selectedOption.getAttribute('data-price') || '80');
 
-      fastBookingForm.reset();
-      fastDateInput.value = todayStr;
-
-      await saveAppointmentToSupabase({
+      const payload = {
         servico: service,
         profissional: professional,
         data: date,
@@ -308,9 +370,24 @@ document.addEventListener('DOMContentLoaded', () => {
         telefone_cliente: phone,
         valor: price,
         status: 'confirmado'
-      });
+      };
 
-      showToast('Horário Agendado com Sucesso! 💇‍♀️', `Parabéns ${name}! Agendamento de ${service} (${professional}) para o dia ${date} às ${time} confirmado.`);
+      const result = await saveAppointmentToSupabase(payload);
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+
+      fastBookingForm.reset();
+      fastDateInput.value = todayStr;
+
+      if (result.success) {
+        showToast('Horário Agendado com Sucesso! 💇‍♀️', `Parabéns ${name}! Agendamento de ${service} (${professional}) para ${date} às ${time} salvo no Supabase.`);
+      } else {
+        const errorMsg = result.error ? (result.error.message || result.error.details || 'Verifique as permissões (RLS) no Supabase.') : 'Verifique sua conexão.';
+        showToast('Aviso no Supabase ⚠️', `Agendamento registrado localmente, mas o Supabase reportou: ${errorMsg}`);
+      }
     });
   }
 });
