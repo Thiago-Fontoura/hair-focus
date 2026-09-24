@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Focus | Salão de Beleza & Estética</title>
+  <meta name="description" content="Hair Focus - Beleza, Estilo e Você. Agendamento online em tempo real, catálogo completo de serviços e atendimento personalizado.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Menu -->
+  <div class="top-announcement">
+    <div class="container announcement-inner">
+      <span>✨ <strong>Novidade:</strong> Agende online em tempo real e garanta seu horário exclusivo!</span>
+      <div class="announcement-links">
+        <span><i class="fa-regular fa-clock"></i> Terça a Sábado: 09h às 19h</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#home" class="brand-logo">
+        <div class="logo-symbol">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Hair Focus</span>
+          <span class="brand-tagline">BELEZA • ESTILO • VOCÊ</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Início</a></li>
+          <li><a href="#agendamento-func" class="nav-link">Agendamento</a></li>
+          <li><a href="#servicos" class="nav-link">Serviços & Preços</a></li>
+          <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-primary" id="openBookingModalBtn">
+          <i class="fa-regular fa-calendar-check"></i>
+          <span>Agendar Horário</span>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span class="pulse-dot"></span>
+            Experiência Premium de Beleza
+          </div>
+
+          <h1 class="hero-title">
+            Seu momento de <span class="gradient-text">beleza</span>, do seu jeito.
+          </h1>
+
+          <p class="hero-description">
+            Agendamento inteligente em tempo real, catálogo transparente com preços e acompanhamento personalizado de cada procedimento para você brilhar.
+          </p>
+
+          <div class="hero-badges">
+            <div class="hero-badge-item">
+              <i class="fa-solid fa-star"></i>
+              <div>
+                <strong>4.9 / 5.0</strong>
+                <span>Avaliações Clientes</span>
+              </div>
+            </div>
+            <div class="hero-badge-item">
+              <i class="fa-solid fa-bolt"></i>
+              <div>
+                <strong>100% Online</strong>
+                <span>Confirmação Imediata</span>
+              </div>
+            </div>
+            <div class="hero-badge-item">
+              <i class="fa-solid fa-crown"></i>
+              <div>
+                <strong>Especialistas</strong>
+                <span>Cabelos & Estética</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-primary btn-large" id="heroBookBtn">
+              <i class="fa-regular fa-calendar-plus"></i> Agendar Meu Horário
+            </button>
+            <a href="#servicos" class="btn-secondary btn-large">
+              <i class="fa-solid fa-scissors"></i> Ver Catálogo Completo
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <img src="assets/images/hero_model.jpg" alt="Salão de Beleza Hair Focus" class="hero-main-img">
+            <span class="image-ref-tag">*Imagens ilustrativas de referência</span>
+            <div class="handwritten-sticker top-right">
+              <span>Seu cabelo, nossa especialidade!</span>
+              <span class="heart-doodle">♡</span>
+            </div>
+            <div class="hero-float-card card-time">
+              <div class="card-icon"><i class="fa-regular fa-clock"></i></div>
+              <div>
+                <span class="card-title">Agendamento Real-Time</span>
+                <span class="card-subtitle">Horários livres atualizados</span>
+              </div>
+            </div>
+            <div class="hero-float-card card-rating">
+              <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="card-rating-text">Mais de 1.200 clientes satisfeitas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agendamento Online -->
+    <section class="feature-block-section" id="agendamento-func">
+      <div class="container feature-block-grid">
+        <div class="feature-info">
+          <div class="step-badge">01</div>
+          <h2 class="feature-title">
+            <i class="fa-regular fa-calendar-days text-pink"></i> Agendamento <span class="gradient-text">online</span> com horários em tempo real
+          </h2>
+          <p class="feature-desc">
+            A cliente vê os horários livres e marca sozinha, sem precisar ligar ou mandar mensagem.
+          </p>
+          <p class="feature-highlight">
+            É a funcionalidade que mais reduz trabalho manual e "esquecimento" de horário.
+          </p>
+
+          <div class="feature-points-row">
+            <div class="f-point">
+              <div class="f-icon"><i class="fa-regular fa-clock"></i></div>
+              <span>Rápido e prático</span>
+            </div>
+            <div class="f-point">
+              <div class="f-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+              <span>24h por dia</span>
+            </div>
+            <div class="f-point">
+              <div class="f-icon"><i class="fa-regular fa-circle-check"></i></div>
+              <span>Confirmação na hora</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-interactive-box">
+          <div class="handwritten-sticker left-angle">
+            <span>Seu horário, do seu jeito!</span>
+            <span class="heart-doodle">♡</span>
+          </div>
+
+          <div class="phone-mockup">
+            <div class="phone-speaker"></div>
+            <div class="phone-screen">
+              <div class="phone-header">
+                <div class="phone-logo">
+                  <div class="p-avatar-circle"><i class="fa-solid fa-spa"></i></div>
+                  <div class="p-logo-text">
+                    <strong>Hair Focus</strong>
+                    <small>BELEZA • ESTILO • VOCÊ</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-body">
+                <h4 class="phone-step-title">Escolha o horário</h4>
+
+                <div class="phone-calendar-nav">
+                  <button type="button" class="cal-nav-btn" id="calPrev"><i class="fa-solid fa-chevron-left"></i></button>
+                  <span class="cal-month" id="calMonthDisplay">Setembro 2026</span>
+                  <button type="button" class="cal-nav-btn" id="calNext"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+
+                <div class="phone-weekdays">
+                  <span>Dom</span>
+                  <span>Seg</span>
+                  <span>Ter</span>
+                  <span>Qua</span>
+                  <span>Qui</span>
+                  <span>Sex</span>
+                  <span>Sáb</span>
+                </div>
+
+                <div class="phone-days-grid" id="phoneDaysGrid">
+                  <span class="day-num muted">10</span>
+                  <span class="day-num" data-day="11">11</span>
+                  <span class="day-num" data-day="12">12</span>
+                  <span class="day-num" data-day="13">13</span>
+                  <span class="day-num active" data-day="14">14</span>
+                  <span class="day-num" data-day="15">15</span>
+                  <span class="day-num" data-day="16">16</span>
+                </div>
+
+                <div class="phone-times-section">
+                  <label class="times-label">Horários disponíveis</label>
+                  <div class="time-slots-grid" id="timeSlotsGrid">
+                    <button type="button" class="time-slot active" data-time="09:00">09:00</button>
+                    <button type="button" class="time-slot" data-time="10:00">10:00</button>
+                    <button type="button" class="time-slot" data-time="11:00">11:00</button>
+                    <button type="button" class="time-slot" data-time="13:00">13:00</button>
+                    <button type="button" class="time-slot" data-time="14:00">14:00</button>
+                    <button type="button" class="time-slot" data-time="15:00">15:00</button>
+                    <button type="button" class="time-slot" data-time="16:00">16:00</button>
+                    <button type="button" class="time-slot" data-time="17:00">17:00</button>
+                  </div>
+                </div>
+
+                <button type="button" class="phone-submit-btn" id="phoneScheduleBtn">
+                  Agendar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catálogo de Serviços -->
+    <section class="feature-block-section" id="servicos">
+      <div class="container feature-block-grid">
+        <div class="feature-info">
+          <div class="step-badge">02</div>
+          <h2 class="feature-title">
+            <i class="fa-solid fa-scissors text-pink"></i> Catálogo de serviços com <span class="gradient-text">preço e duração</span>
+          </h2>
+          <p class="feature-desc">
+            Clareza pra cliente e facilita o cálculo da agenda.
+          </p>
+          <p class="feature-highlight">
+            Transparência total que gera confiança antes mesmo do atendimento começar.
+          </p>
+
+          <div class="feature-checklist">
+            <div class="check-item">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Todos os serviços do salão detalhados</span>
+            </div>
+            <div class="check-item">
+              <i class="fa-solid fa-tags"></i>
+              <span>Preços claros e atualizados</span>
+            </div>
+            <div class="check-item">
+              <i class="fa-regular fa-clock"></i>
+              <span>Duração estimada de cada procedimento</span>
+            </div>
+            <div class="check-item">
+              <i class="fa-regular fa-user"></i>
+              <span>Atendimento exclusivo com especialista</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-interactive-box">
+          <div class="services-catalog-card">
+            <div class="catalog-card-header">
+              <h3>Nossos Serviços</h3>
+              <div class="catalog-categories-tabs" id="catalogPills">
+                <button type="button" class="cat-pill active" data-category="all">Todos</button>
+                <button type="button" class="cat-pill" data-category="cortes">Cortes</button>
+                <button type="button" class="cat-pill" data-category="coloracao">Coloração</button>
+                <button type="button" class="cat-pill" data-category="mechas">Mechas</button>
+                <button type="button" class="cat-pill" data-category="alongamento">Alongamento</button>
+              </div>
+            </div>
+
+            <div class="catalog-items-list" id="catalogList">
+              <div class="service-item-row" data-cat="cortes">
+                <div class="service-avatar">
+                  <img src="assets/images/category_cortes.jpg" alt="Corte Feminino">
+                </div>
+                <div class="service-details">
+                  <h4>Corte Feminino</h4>
+                  <p>Corte personalizado para realçar sua beleza natural.</p>
+                  <div class="service-meta-tags">
+                    <span class="tag-duration"><i class="fa-regular fa-clock"></i> 45 min</span>
+                  </div>
+                </div>
+                <div class="service-price-action">
+                  <span class="service-price">R$ 80,00</span>
+                  <button type="button" class="btn-catalog-book" data-service="Corte Feminino" data-price="80.00" data-duration="45 min">Agendar</button>
+                </div>
+              </div>
+
+              <div class="service-item-row" data-cat="coloracao">
+                <div class="service-avatar">
+                  <img src="assets/images/category_pinturas.jpg" alt="Coloração Global">
+                </div>
+                <div class="service-details">
+                  <h4>Coloração</h4>
+                  <p>Realce sua cor com as melhores tintas e tonalizantes do mercado.</p>
+                  <div class="service-meta-tags">
+                    <span class="tag-duration"><i class="fa-regular fa-clock"></i> 1h 30min</span>
+                  </div>
+                </div>
+                <div class="service-price-action">
+                  <span class="service-price">R$ 150,00</span>
+                  <button type="button" class="btn-catalog-book" data-service="Coloração" data-price="150.00" data-duration="1h 30min">Agendar</button>
+                </div>
+              </div>
+
+              <div class="service-item-row" data-cat="mechas">
+                <div class="service-avatar">
+                  <img src="assets/images/category_pinturas.jpg" alt="Mechas Iluminadas">
+                </div>
+                <div class="service-details">
+                  <h4>Mechas</h4>
+                  <p>Iluminação elegante e mais vida para o seu cabelo.</p>
+                  <div class="service-meta-tags">
+                    <span class="tag-duration"><i class="fa-regular fa-clock"></i> 2h 00min</span>
+                  </div>
+                </div>
+                <div class="service-price-action">
+                  <span class="service-price">R$ 220,00</span>
+                  <button type="button" class="btn-catalog-book" data-service="Mechas" data-price="220.00" data-duration="2h 00min">Agendar</button>
+                </div>
+              </div>
+
+              <div class="service-item-row" data-cat="alongamento">
+                <div class="service-avatar">
+                  <img src="assets/images/category_alongamento.jpg" alt="Alongamento de Cabelos">
+                </div>
+                <div class="service-details">
+                  <h4>Alongamento de Cabelos</h4>
+                  <p>Mais comprimento e volume com resultado invisível e natural.</p>
+                  <div class="service-meta-tags">
+                    <span class="tag-duration"><i class="fa-regular fa-clock"></i> 2h 30min</span>
+                  </div>
+                </div>
+                <div class="service-price-action">
+                  <span class="service-price">R$ 450,00</span>
+                  <button type="button" class="btn-catalog-book" data-service="Alongamento de Cabelos" data-price="450.00" data-duration="2h 30min">Agendar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section class="gallery-showcase-section" id="especialidades">
+      <div class="container">
+        <div class="section-center-head">
+          <div class="step-badge">03</div>
+          <h2 class="showcase-title">
+            <i class="fa-solid fa-crown text-pink"></i> Beleza completa <span class="gradient-text">em um só lugar</span>
+          </h2>
+          <p class="showcase-subtitle">
+            Cortes, pinturas, alongamento e muito mais. Tudo para você se sentir ainda mais linda!
+          </p>
+          <span class="gallery-ref-note">*Fotos ilustrativas para referência de estilos e procedimentos.</span>
+          <div class="handwritten-sticker center-sticker">
+            <span>Seu cabelo, nossa especialidade!</span>
+            <span class="heart-doodle">♡</span>
+          </div>
+        </div>
+
+        <div class="specialties-cards-grid">
+          <div class="specialty-card" data-cat-select="cortes">
+            <div class="spec-image-wrap">
+              <img src="assets/images/category_cortes.jpg" alt="Cortes Modernos">
+              <div class="spec-overlay">
+                <span class="spec-action">Ver cortes <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="spec-footer">
+              <div class="spec-icon"><i class="fa-solid fa-scissors"></i></div>
+              <span class="spec-name">Cortes</span>
+            </div>
+          </div>
+
+          <div class="specialty-card" data-cat-select="coloracao">
+            <div class="spec-image-wrap">
+              <img src="assets/images/category_pinturas.jpg" alt="Pinturas e Mechas">
+              <div class="spec-overlay">
+                <span class="spec-action">Ver colorações <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="spec-footer">
+              <div class="spec-icon"><i class="fa-solid fa-droplet"></i></div>
+              <span class="spec-name">Pinturas</span>
+            </div>
+          </div>
+
+          <div class="specialty-card" data-cat-select="alongamento">
+            <div class="spec-image-wrap">
+              <img src="assets/images/category_alongamento.jpg" alt="Alongamento de Cabelos">
+              <div class="spec-overlay">
+                <span class="spec-action">Ver megahair <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </div>
+            <div class="spec-footer">
+              <div class="spec-icon"><i class="fa-solid fa-wand-magic"></i></div>
+              <span class="spec-name">Alongamento</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agendamento Rápido -->
+    <section class="live-booking-cta-section" id="agendar-secao">
+      <div class="container">
+        <div class="booking-cta-card">
+          <div class="cta-header-text">
+            <span class="cta-subtitle">Atendimento Exclusivo</span>
+            <h2>Pronta para renovar sua autoestima hoje?</h2>
+            <p>Selecione o serviço desejado, o melhor horário e confirme instantaneamente pelo nosso sistema.</p>
+          </div>
+
+          <form class="fast-booking-form" id="fastBookingForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fastService"><i class="fa-solid fa-scissors"></i> Serviço</label>
+                <select id="fastService" required>
+                  <option value="" disabled selected>Selecione um serviço</option>
+                  <option value="Corte Feminino" data-price="80">Corte Feminino - R$ 80,00 (45min)</option>
+                  <option value="Coloração" data-price="150">Coloração Global - R$ 150,00 (1h30)</option>
+                  <option value="Mechas" data-price="220">Mechas Iluminadas - R$ 220,00 (2h)</option>
+                  <option value="Alongamento de Cabelos" data-price="450">Alongamento de Cabelos - R$ 450,00 (2h30)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="fastProfessional"><i class="fa-regular fa-user"></i> Profissional</label>
+                <select id="fastProfessional" required>
+                  <option value="Mirian Fontoura" selected>Mirian Fontoura (Master Stylist)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="fastDate"><i class="fa-regular fa-calendar"></i> Data Desejada</label>
+                <input type="date" id="fastDate" required>
+              </div>
+
+              <div class="form-group">
+                <label for="fastTime"><i class="fa-regular fa-clock"></i> Horário</label>
+                <select id="fastTime" required>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00" selected>14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row client-details-row">
+              <div class="form-group">
+                <label for="fastName"><i class="fa-regular fa-id-badge"></i> Seu Nome Completo</label>
+                <input type="text" id="fastName" placeholder="Ex: Juliana Silva" required>
+              </div>
+              <div class="form-group">
+                <label for="fastPhone"><i class="fa-brands fa-whatsapp"></i> Seu WhatsApp</label>
+                <input type="tel" id="fastPhone" placeholder="(11) 98765-4321" required>
+              </div>
+              <div class="form-group submit-group">
+                <button type="submit" class="btn-primary btn-submit-glow">
+                  <i class="fa-solid fa-check"></i> Confirmar Agendamento
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-center-head">
+          <span class="sub-badge">Depoimentos Reais</span>
+          <h2>O que nossas clientes dizem</h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testi-card">
+            <div class="testi-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>"O agendamento online é maravilhoso! Não preciso mais ficar esperando resposta no WhatsApp, escolho o horário e já chego sendo atendida."</p>
+            <div class="testi-author">
+              <strong>Juliana Silva</strong>
+              <span>Cliente há 2 anos</span>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>"Amei o atendimento da Mirian! Super atenciosa, entendeu exatamente o estilo de corte e mechas que combinavam comigo."</p>
+            <div class="testi-author">
+              <strong>Camila Rodrigues</strong>
+              <span>Mechas & Coloração</span>
+            </div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p>"Ambiente impecável, profissionais que realmente entendem de saúde capilar e um atendimento com respeito e pontualidade."</p>
+            <div class="testi-author">
+              <strong>Mariana Souza</strong>
+              <span>Corte Feminino</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <a href="#home" class="brand-logo footer-brand">
+          <div class="logo-symbol">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">Hair Focus</span>
+            <span class="brand-tagline">BELEZA • ESTILO • VOCÊ</span>
+          </div>
+        </a>
+        <p class="footer-about">
+          Especialistas em realçar a beleza feminina através de técnicas modernas de corte, coloração e alongamento capilar.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Links Rápidos</h4>
+        <ul class="footer-nav">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#agendamento-func">Agendamento Online</a></li>
+          <li><a href="#servicos">Catálogo de Serviços</a></li>
+          <li><a href="#especialidades">Especialidades</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Serviços Populares</h4>
+        <ul class="footer-nav">
+          <li><a href="#servicos">Corte Feminino</a></li>
+          <li><a href="#servicos">Coloração Global</a></li>
+          <li><a href="#servicos">Mechas Iluminadas</a></li>
+          <li><a href="#servicos">Alongamento de Cabelos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Agende Agora</h4>
+        <p class="footer-cta-text">Garanta seu horário em segundos pelo nosso sistema interativo.</p>
+        <button class="btn-primary btn-footer" id="footerBookBtn">
+          <i class="fa-regular fa-calendar-check"></i> Agendar Agora
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Hair Focus. Todos os direitos reservados.</p>
+        <p class="designer-credit">*Imagens e fotos meramente ilustrativas para referência estética.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Agendamento -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-container">
+      <button type="button" class="modal-close" id="closeBookingModal" aria-label="Fechar">&times;</button>
+
+      <div class="modal-header">
+        <div class="modal-badge"><i class="fa-regular fa-calendar-check"></i> Agendamento Online</div>
+        <h3 id="modalTitle">Confirmar Agendamento</h3>
+        <p>Preencha os dados abaixo para reservar seu horário em tempo real.</p>
+      </div>
+
+      <form class="modal-form" id="modalBookingForm">
+        <div class="modal-form-grid">
+          <div class="modal-group">
+            <label for="modalServiceSelect">Procedimento</label>
+            <select id="modalServiceSelect" required>
+              <option value="Corte Feminino" data-price="80">Corte Feminino - R$ 80,00</option>
+              <option value="Coloração" data-price="150">Coloração - R$ 150,00</option>
+              <option value="Mechas" data-price="220">Mechas Iluminadas - R$ 220,00</option>
+              <option value="Alongamento de Cabelos" data-price="450">Alongamento de Cabelos - R$ 450,00</option>
+            </select>
+          </div>
+
+          <div class="modal-group">
+            <label for="modalStylistSelect">Profissional</label>
+            <select id="modalStylistSelect" required>
+              <option value="Mirian Fontoura" selected>Mirian Fontoura (Master Stylist)</option>
+            </select>
+          </div>
+
+          <div class="modal-group">
+            <label for="modalDatePicker">Data</label>
+            <input type="date" id="modalDatePicker" required>
+          </div>
+
+          <div class="modal-group">
+            <label for="modalTimePicker">Horário</label>
+            <select id="modalTimePicker" required>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+            </select>
+          </div>
+
+          <div class="modal-group full-width">
+            <label for="modalClientName">Nome Completo</label>
+            <input type="text" id="modalClientName" placeholder="Ex: Juliana Silva" required>
+          </div>
+
+          <div class="modal-group full-width">
+            <label for="modalClientPhone">WhatsApp para confirmação</label>
+            <input type="tel" id="modalClientPhone" placeholder="(11) 98765-4321" required>
+          </div>
+        </div>
+
+        <div class="modal-summary-box">
+          <div class="summary-line">
+            <span>Preço Estimado:</span>
+            <strong id="modalSummaryPrice" class="summary-highlight">R$ 80,00</strong>
+          </div>
+          <div class="summary-line">
+            <span>Confirmação:</span>
+            <span>Imediata via WhatsApp</span>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn-primary btn-block">
+            <i class="fa-solid fa-calendar-check"></i> Finalizar Agendamento
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notificação Toast -->
+  <div class="toast-notification" id="toastNotification">
+    <div class="toast-icon"><i class="fa-solid fa-circle-check"></i></div>
+    <div class="toast-content">
+      <strong id="toastTitle">Agendamento Realizado!</strong>
+      <p id="toastMessage">Seu horário foi confirmado com sucesso.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
